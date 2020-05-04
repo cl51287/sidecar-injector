@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sidecar-injector-webhook-configmap
+  namespace: sidecar-injector
+data:
+  sidecarconfig.yaml: |
+    containers:
+    - name: sidecar-envoy-alpine:v1.12.1
+      image: hub.hexin.cn:9082/sidecar/envoy-alpine:v1.12.1
+      imagePullPolicy: IfNotPresent
